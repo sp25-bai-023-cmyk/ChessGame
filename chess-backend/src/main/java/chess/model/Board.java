@@ -68,4 +68,15 @@ public class Board {
             System.out.println();
         }
     }
+    public void movePiece(Position from, Position to) {
+        Piece movingPiece = board[from.getRow()][from.getCol()];
+        Piece capturedPiece = board[to.getRow()][to.getCol()];
+
+        board[to.getRow()][to.getCol()] = movingPiece;
+        board[from.getRow()][from.getCol()] = null;
+
+        System.out.println("Moved " + movingPiece.getType() + " from " + from + " to " + to);
+        if (capturedPiece != null)
+            System.out.println("Captured " + capturedPiece.getType());
+    }
 }
